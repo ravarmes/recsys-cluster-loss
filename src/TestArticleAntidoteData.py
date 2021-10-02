@@ -34,12 +34,14 @@ omega = ~X.isnull() # matrix X with True in cells with evaluations and False in 
 
 X_est = article.compute_X_est(X, algorithm) # RecSysALS or RecSysKNN or RecSysNMF or RecSysExampleAntidoteData20Items
 
-#print("X")
-#print(X)
-#print("X_est")
-#print(X_est)
-#print("Omega")
-#print(omega)
+print("\nuser_info")
+print(user_info)
+print("\nX")
+print(X)
+print("\nX_est")
+print(X_est)
+print("\nOmega")
+print(omega)
 
 print("\n\n------------ SOCIAL OBJECTIVE FUNCTIONS ------------")
 
