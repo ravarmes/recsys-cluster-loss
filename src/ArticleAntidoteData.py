@@ -28,7 +28,7 @@ class ArticleAntidoteData():
         movies = pd.read_table('{}/movies.dat'.format(data_dir), names=['MovieID', 'Title', 'Genres', 'Price'], sep='::', engine='python')
                             
         user_info = pd.read_table('{}/users.dat'.format(data_dir), names=['UserID','Gender','Age','NA','SPI', 'MA', 'MR'], sep='::', engine='python')
-        #user_info = user_info.rename(index=user_info['UserID'])[['Gender','Age','NA','SPI', 'MA', 'MR']]
+        user_info = user_info.rename(index=user_info['UserID'])[['Gender','Age','NA','SPI', 'MA', 'MR']]
         
         # put movie titles as index on rows
         movieSeries = pd.Series(list(movies['Title']), index=movies['MovieID'])
