@@ -5,7 +5,7 @@ import RecSysKNN
 import RecSysNMF
 from RecSysExampleData20Items import RecSysExampleData20Items
 
-class ArticleAntidoteData():
+class ArticleAntidoteData20Items():
         
     def __init__(self, n_users, n_movies, top_users, top_movies, l, theta, k):
         self.n_users = n_users
@@ -25,10 +25,10 @@ class ArticleAntidoteData():
         # create a dataframe with movie IDs on the rows and user IDs on the columns
         ratings = df.pivot(index='MovieID', columns='UserID', values='Rating')
         
-        movies = pd.read_table('{}/movies.dat'.format(data_dir), names=['MovieID', 'Title', 'Genres'], sep='::', engine='python')
+        movies = pd.read_table('{}/movies.dat'.format(data_dir), names=['MovieID', 'Title', 'Genres', 'Price'], sep='::', engine='python')
                             
-        user_info = pd.read_table('{}/users.dat'.format(data_dir), names=['UserID','Gender','Age','Occupation','Zip-code'], sep='::', engine='python')
-        user_info = user_info.rename(index=user_info['UserID'])[['Gender','Age','Occupation','Zip-code']]
+        user_info = pd.read_table('{}/users.dat'.format(data_dir), names=['UserID','Gender','Age','NA','SPI', 'MA', 'MR'], sep='::', engine='python')
+        user_info = user_info.rename(index=user_info['UserID'])[['Gender','Age','NA','SPI', 'MA', 'MR']]
         
         # put movie titles as index on rows
         movieSeries = pd.Series(list(movies['Title']), index=movies['MovieID'])

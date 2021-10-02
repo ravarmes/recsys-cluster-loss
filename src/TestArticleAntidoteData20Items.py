@@ -1,28 +1,29 @@
-from ArticleAntidoteData import ArticleAntidoteData
-from ArticleAntidoteData import Polarization
-from ArticleAntidoteData import IndividualLossVariance
-from ArticleAntidoteData import GroupLossVariance
+from ArticleAntidoteData20Items import ArticleAntidoteData20Items
+from ArticleAntidoteData20Items import Polarization
+from ArticleAntidoteData20Items import IndividualLossVariance
+from ArticleAntidoteData20Items import GroupLossVariance
 
 
-# reading data from 3883 movies and 6040 users 
-Data_path = 'Data/MovieLens-1M'
-n_users=  300
-n_movies= 1000
-top_users = True # True: to use users with more ratings; False: otherwise
+# reading data from a base with 20 movies and 40 users
+Data_path = 'Data/Movie20Items'
+n_users=  40
+n_movies= 20
+top_users = False # True: to use users with more ratings; False: otherwise
 top_movies = False # True: to use movies with more ratings; False: otherwise
 
 # recommendation algorithm
-algorithm = 'RecSysALS'
-#algorithm = 'RecSysExampleAntidoteData20Items' # this algorithm should only be used for a database with 40 users and 20 movies 'Data/Movie20Items'
+algorithm = 'RecSysExampleAntidoteData20Items' # this algorithm should only be used for a database with 40 users and 20 movies 'Data/Movie20Items'
+#algorithm = 'RecSysALS'
+
 
 # parameters for calculating fairness measures
 l = 5
 theta = 3
 k = 3
 
-article = ArticleAntidoteData(n_users, n_movies, top_users, top_movies, l, theta, k)
+article = ArticleAntidoteData20Items(n_users, n_movies, top_users, top_movies, l, theta, k)
 
-X, genres, user_info = article.read_movieitems(n_users, n_movies, top_users, top_movies, data_dir = Data_path) # returns matrix of ratings with n_users rows and n_moveis columns
+X, genres, user_info = article.read_movieitems(n_users, n_movies, top_users, top_movies, Data_path) # returns matrix of ratings with n_users rows and n_moveis columns
 omega = ~X.isnull() # matrix X with True in cells with evaluations and False in cells not rated
 
 X_est = article.compute_X_est(X, algorithm) # RecSysALS or RecSysKNN or RecSysNMF or RecSysExampleAntidoteData20Items
@@ -53,11 +54,7 @@ print("Individual Loss Variance (Rindv):", Rindv)
 # G group: identifying the groups (NA: users grouped by number of ratings for available items)
 # advantaged group: 5% users with the highest number of item ratings
 # disadvantaged group: 95% users with the lowest number of item ratings
-list_users = X_est.index.tolist()
-advantaged_group = list_users[0:15]
-disadvantaged_group = list_users[15:300]
-G = {1: advantaged_group, 2: disadvantaged_group}
-
+G = {1: [1,2], 2: [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]}
 glv = GroupLossVariance(X, omega, G, 1) #axis = 1 (0 rows e 1 columns)
 RgrpNA = glv.evaluate(X_est)
 print("Group Loss Variance (Rgrp NA):", RgrpNA)
