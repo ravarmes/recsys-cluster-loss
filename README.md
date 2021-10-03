@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="RVM" src="https://github.com/ravarmes/recsys-antidote/blob/main/assets/logo.jpg" />
+    <img alt="RVM" src="https://github.com/ravarmes/recsys-cluster-loss/blob/main/assets/logo.jpg" />
 </h1>
 
 <h3 align="center">
@@ -29,8 +29,6 @@
 </p>
 
 ## :page_with_curl: Sobre o projeto <a name="-sobre"/></a>
-
-> É proposta uma análise de agrupamento no contexto de sistemas de recomendação, considerando as perdas da medida de justiça individual.
 
 O objetivo deste repositório é implementar os cálculos para uma análise de agrupamento no contexto de sistemas de recomendação, considerando as perdas da medida de justiça individual.
 
