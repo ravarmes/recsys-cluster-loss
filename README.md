@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="RVM" src="https://github.com/ravarmes/recsys-cluster-loss/blob/main/assets/logo.jpg" />
+    <img alt="RVM" src="https://github.com/ravarmes/recsys-cluster-loss/blob/master/assets/logo.jpg" />
 </h1>
 
 <h3 align="center">
@@ -54,7 +54,7 @@ Os cálculos da justiça individual são baseados nas implementações do respos
 
 ## :link: Links <a name="-links"/></a>
 
-- [Google Sheets](https://github.com/ravarmes/recsys-cluster-loss/blob/main/docs/recsys-cluster-loss-example.xlsx) - Planilha para demonstrar a utilização do algoritmo para uma base de dados pequena (40 usuários e 20 filmes);
+- [Google Sheets](https://github.com/ravarmes/recsys-cluster-loss/blob/master/docs/recsys-cluster-loss-example.xlsx) - Planilha para demonstrar a utilização do algoritmo para uma base de dados pequena (40 usuários e 20 filmes);
 - [Artigo](https://arxiv.org/pdf/1812.01504.pdf) - Fighting Fire with Fire: Using Antidote Data to Improve Polarization and Fairness of Recommender Systems;
 
 
