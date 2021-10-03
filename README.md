@@ -38,23 +38,25 @@ Os cálculos da justiça individual são baseados nas implementações do respos
 
 ### Funções de Objetivo Social (Social Objective Functions)
 
-```
 * Individual fairness (Justiça Individual): a perda do usuário i é a estimativa do erro quadrático médio sobre as classificações conhecidas do usuário i
-```
 
 ### Arquivos
 
-```
-* ArticleAntidoteData: implementação das medidas de justiça do usuário (ou funções de objetivo social)
-* RecSysALS: implementação do sistema de recomendação baseado em filtragem colaborativa utilizando ALS (mínimos quadrados alternados)
-* RecSysExampleData20Items: implementação de uma matriz de recomendações estimadas (apenas exemplo com valores aleatórios)
-* TestArticleAntidoteData: arquivo para testar a implementação ArticleAntidoteData
-```
+- RecSys: implementação da classe genérica para a utilização do sistema de recomendação
+- RecSysALS: implementação do sistema de recomendação baseado em filtragem colaborativa utilizando ALS (mínimos quadrados alternados)
+- RecSysExampleData20Items: implementação de uma matriz de recomendações estimadas (apenas exemplo com valores aleatórios)
+- UserFairness: implementação das funções de objetivo social (polarização, justiça individual e justiça do grupo)
+- TestUserFairness_MovieLens_1M: arquivo para testar a implementação UserFairness com base no conjunto de dados MovieLens-1M
+- TestUserFairness_MovieLens_Small: arquivo para testar a implementação UserFairness com base no conjunto de dados MovieLens-Small (40 usuários e 20 itens)
+- TestCluster_MovieLens_1M_01: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados MovieLens-1M e nas variáveis justiça individual, idade e ocupação.
+- TestCluster_MovieLens_1M_02: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados MovieLens-1M e na variável justiça individual.
+- TestCluster_MovieLens_Small_01: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados MovieLens-Small e nas variáveis justiça individual, idade, NA, SPI, MA e MR.
+- TestCluster_MovieLens_Small_02: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados MovieLens-Small e na variável justiça individual.
+
 
 ## :link: Links <a name="-links"/></a>
 
-- [Google Colaboratory](https://colab.research.google.com/drive/1aZIuljttlAaTq-LxtcXgjuBNnDCakuzE) - Notebook para demonstrar a utilização do algoritmo para uma base de dados pequena (40 usuários e 20 filmes);
-- [Google Sheets](https://github.com/ravarmes/recsys-antidote/blob/main/docs/antidote-data-example.xlsx) - Planilha para demonstrar a utilização do algoritmo para uma base de dados pequena (40 usuários e 20 filmes);
+- [Google Sheets](https://github.com/ravarmes/recsys-cluster-loss/blob/main/docs/recsys-cluster-loss-example.xlsx) - Planilha para demonstrar a utilização do algoritmo para uma base de dados pequena (40 usuários e 20 filmes);
 - [Artigo](https://arxiv.org/pdf/1812.01504.pdf) - Fighting Fire with Fire: Using Antidote Data to Improve Polarization and Fairness of Recommender Systems;
 
 
