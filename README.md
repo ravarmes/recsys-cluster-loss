@@ -44,8 +44,11 @@ Os cálculos da justiça individual são baseados nas implementações do respos
 - RecSysALS: implementação do sistema de recomendação baseado em filtragem colaborativa utilizando ALS (mínimos quadrados alternados)
 - RecSysExampleData20Items: implementação de uma matriz de recomendações estimadas (apenas exemplo com valores aleatórios)
 - UserFairness: implementação das funções de objetivo social (polarização, justiça individual e justiça do grupo)
+- TestUserFairness_Books: arquivo para testar a implementação UserFairness com base no conjunto de dados Books
 - TestUserFairness_MovieLens_1M: arquivo para testar a implementação UserFairness com base no conjunto de dados MovieLens-1M
 - TestUserFairness_MovieLens_Small: arquivo para testar a implementação UserFairness com base no conjunto de dados MovieLens-Small (40 usuários e 20 itens)
+- TestCluster_Books_01: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados Books e nas variáveis justiça individual, idade e localização.
+- TestCluster_Books_02: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados Books e na variável justiça individual.
 - TestCluster_MovieLens_1M_01: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados MovieLens-1M e nas variáveis justiça individual, idade e ocupação.
 - TestCluster_MovieLens_1M_02: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados MovieLens-1M e na variável justiça individual.
 - TestCluster_MovieLens_Small_01: notebook com a implementação de análise de agrupamento (dendograma e K-means) com base no conjunto de dados MovieLens-Small e nas variáveis justiça individual, idade, NA, SPI, MA e MR.
