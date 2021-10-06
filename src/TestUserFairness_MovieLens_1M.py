@@ -7,9 +7,9 @@ from UserFairness import GroupLossVariance
 # reading data from 3883 movies and 6040 users 
 Data_path = 'Data/MovieLens-1M'
 n_users=  300
-n_movies= 1000
+n_items= 1000
 top_users = True # True: to use users with more ratings; False: otherwise
-top_movies = False # True: to use movies with more ratings; False: otherwise
+top_items = False # True: to use movies with more ratings; False: otherwise
 
 # recommendation algorithm
 algorithm = 'RecSysALS'
@@ -19,21 +19,13 @@ l = 5
 theta = 3
 k = 3
 
-recsys = RecSys(n_users, n_movies, top_users, top_movies, l, theta, k)
+recsys = RecSys(n_users, n_items, top_users, top_items, l, theta, k)
 
-X, genres, user_info = recsys.read_movielens_1M(n_users, n_movies, top_users, top_movies, data_dir = Data_path) # returns matrix of ratings with n_users rows and n_moveis columns
+X, users_info, items_info = recsys.read_movielens_1M(n_users, n_items, top_users, top_items, data_dir = Data_path) # returns matrix of ratings with n_users rows and n_items columns
 omega = ~X.isnull() # matrix X with True in cells with evaluations and False in cells not rated
 
 X_est = recsys.compute_X_est(X, algorithm) # RecSysALS or RecSysKNN or RecSysNMF or RecSysExampleAntidoteData20Items
 
-#print("\nuser_info")
-#print(user_info)
-#print("\nX")
-#print(X)
-#print("\nX_est")
-#print(X_est)
-#print("\nOmega")
-#print(omega)
 
 print("\n\n------------ SOCIAL OBJECTIVE FUNCTIONS ------------")
 
