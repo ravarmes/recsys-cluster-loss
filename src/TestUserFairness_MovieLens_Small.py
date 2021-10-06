@@ -7,12 +7,12 @@ from UserFairness import GroupLossVariance
 # reading data from a base with 20 movies and 40 users
 Data_path = 'Data/MovieLens-Small'
 n_users=  40
-n_movies= 20
+n_items= 20
 top_users = False # True: to use users with more ratings; False: otherwise
-top_movies = False # True: to use movies with more ratings; False: otherwise
+top_items = False # True: to use movies with more ratings; False: otherwise
 
 # recommendation algorithm
-algorithm = 'RecSysExampleAntidoteData20Items' # this algorithm should only be used for a database with 40 users and 20 movies 'Data/Movie20Items'
+algorithm = 'RecSysExampleAntidoteData20Items' # this algorithm should only be used for a database with 40 users and 20 items 'Data/Movie20Items'
 #algorithm = 'RecSysALS'
 
 
@@ -21,21 +21,13 @@ l = 5
 theta = 3
 k = 3
 
-recsys = RecSys(n_users, n_movies, top_users, top_movies, l, theta, k)
+recsys = RecSys(n_users, n_items, top_users, top_items, l, theta, k)
 
-X, genres, user_info = recsys.read_movielens_small(n_users, n_movies, top_users, top_movies, Data_path) # returns matrix of ratings with n_users rows and n_moveis columns
+X, users_info, items_info = recsys.read_movielens_small(n_users, n_items, top_users, top_items, Data_path) # returns matrix of ratings with n_users rows and n_moveis columns
 omega = ~X.isnull() # matrix X with True in cells with evaluations and False in cells not rated
 
 X_est = recsys.compute_X_est(X, algorithm) # RecSysALS or RecSysKNN or RecSysNMF or RecSysExampleAntidoteData20Items
 
-#print("\nuser_info")
-#print(user_info)
-#print("\nX")
-#print(X)
-#print("\nX_est")
-#print(X_est)
-#print("\nOmega")
-#print(omega)
 
 print("\n\n------------ SOCIAL OBJECTIVE FUNCTIONS ------------")
 
