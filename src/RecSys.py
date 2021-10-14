@@ -28,6 +28,10 @@ class RecSys():
         users_info = pd.read_table('{}/users.dat'.format(data_dir), names=['UserID','Gender','Age','Occupation','Zip-code'], sep='::', engine='python')
         users_info = users_info.rename(index=users_info['UserID'])[['Gender','Age','Occupation','Zip-code']]
 
+        # add number of ratings in users_info
+        num_ratings = (~ratings.isnull()).sum(axis=0)
+        users_info['NR'] = num_ratings
+
         items_info = pd.read_table('{}/movies.dat'.format(data_dir), names=['MovieID', 'Title', 'Genres'], sep='::', engine='python')
         
         # put movie titles as index on rows
@@ -70,8 +74,8 @@ class RecSys():
         movieSeries = pd.Series(list(items_info['Title']), index=items_info['MovieID'])
         ratings = ratings.rename(index=movieSeries)
 
-        users_info = pd.read_table('{}/users.dat'.format(data_dir), names=['UserID','Gender','Age','NA','SPI', 'MA', 'MR'], sep='::', engine='python')
-        users_info = users_info.rename(index=users_info['UserID'])[['Gender','Age','NA','SPI', 'MA', 'MR']]
+        users_info = pd.read_table('{}/users.dat'.format(data_dir), names=['UserID','Gender','Age','NR','SPI', 'MA', 'MR'], sep='::', engine='python')
+        users_info = users_info.rename(index=users_info['UserID'])[['Gender','Age','NR','SPI', 'MA', 'MR']]
 
         if top_items:
             # select the top n_movies with the highest number of ratings
@@ -108,6 +112,10 @@ class RecSys():
         items_info = pd.read_csv('{}/books.csv'.format(data_dir), sep=';')
                             
         users_info = users_info.rename(index=users_info['UserID'])[['Location','Age']]
+
+        # add number of ratings in users_info
+        num_ratings = (~ratings.isnull()).sum(axis=0)
+        users_info['NR'] = num_ratings
         
         # put movie titles as index on rows
         #movieSeries = pd.Series(list(movies['Title']), index=movies['MovieID'])

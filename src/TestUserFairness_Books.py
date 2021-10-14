@@ -26,7 +26,6 @@ omega = ~X.isnull() # matrix X with True in cells with evaluations and False in 
 
 X_est = recsys.compute_X_est(X, algorithm) # RecSysALS or RecSysKNN or RecSysNMF or RecSysExampleAntidoteData20Items
 
-
 print("\n\n------------ SOCIAL OBJECTIVE FUNCTIONS ------------")
 
 # To capture polarization, we seek to measure the extent to which the user ratings disagree
