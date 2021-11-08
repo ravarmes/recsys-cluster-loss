@@ -112,6 +112,3 @@ print('pair_confusion_matrix')
 print('--------------------------------------------------------------------------')
 print(pair_confusion_matrix(Labels_Movies_1M_Age, Labels_Movies_1M_Loss))
 print('--------------------------------------------------------------------------')
-
-print(adjusted_rand_score([1,1,1,1,1,2,2,2,2,2], [2,2,2,2,2,1,1,1,1,1]))
-print(rand_score([1,1,1,1,1,2,2,2,2,2], [2,2,2,2,2,1,1,1,1,1]))

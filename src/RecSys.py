@@ -25,14 +25,14 @@ class RecSys():
         # create a dataframe with movie IDs on the rows and user IDs on the columns
         ratings = df.pivot(index='MovieID', columns='UserID', values='Rating')
         
-        users_info = pd.read_table('{}/users.dat'.format(data_dir), names=['UserID','Gender','Age','Occupation','Zip-code'], sep='::', engine='python')
+        users_info = pd.read_table('{}/users.dat'.format(data_dir), names=['UserID','Gender','Age','Occupation','Zip-code'], sep='::', engine='python', encoding = "ISO-8859-1")
         users_info = users_info.rename(index=users_info['UserID'])[['Gender','Age','Occupation','Zip-code']]
 
         # add number of ratings in users_info
         num_ratings = (~ratings.isnull()).sum(axis=0)
         users_info['NR'] = num_ratings
 
-        items_info = pd.read_table('{}/movies.dat'.format(data_dir), names=['MovieID', 'Title', 'Genres'], sep='::', engine='python')
+        items_info = pd.read_table('{}/movies.dat'.format(data_dir), names=['MovieID', 'Title', 'Genres'], sep='::', engine='python', encoding = "ISO-8859-1")
         
         # put movie titles as index on rows
         movieSeries = pd.Series(list(items_info['Title']), index=items_info['MovieID'])
@@ -107,9 +107,9 @@ class RecSys():
         # create a dataframe with item IDs on the rows and user IDs on the columns
         ratings = df.pivot(index='BookID', columns='UserID', values='Rating')
         
-        users_info = pd.read_csv('{}/users.csv'.format(data_dir), sep=';')
+        users_info = pd.read_csv('{}/users.csv'.format(data_dir), sep=';', encoding = "ISO-8859-1")
         
-        items_info = pd.read_csv('{}/books.csv'.format(data_dir), sep=';')
+        items_info = pd.read_csv('{}/books.csv'.format(data_dir), sep=';', encoding = "ISO-8859-1")
                             
         users_info = users_info.rename(index=users_info['UserID'])[['Location','Age']]
 
