@@ -32,7 +32,7 @@
 
 O objetivo deste repositório é implementar os cálculos para uma análise de agrupamento no contexto de sistemas de recomendação, considerando as perdas da medida de justiça individual.
 
-Os cálculos da justiça individual são baseados nas implementações do respositório [antidote-data-framework](https://github.com/rastegarpanah/antidote-data-framework) 
+Os cálculos da justiça individual são baseados nas implementações do repositório [antidote-data-framework](https://github.com/rastegarpanah/antidote-data-framework) 
 
 ### Funções de Objetivo Social (Social Objective Functions)
 
